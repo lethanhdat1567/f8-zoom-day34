@@ -57,7 +57,13 @@ function TodoApp() {
                     Thêm
                 </button>
             </form>
+
             <ul className="todos">
+                {todos.length === 0 && (
+                    <p className="empty-alert">
+                        Chưa có task nào. Hãy thêm task đầu tiên!
+                    </p>
+                )}
                 {todos.map((todo) => (
                     <li className="todo-item" key={todo.id}>
                         <input

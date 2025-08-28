@@ -116,3 +116,9 @@ body {
     text-align: center;
     font-size: 14px;
 }
+
+.empty-alert {
+    font-size: 14px;
+    color: #676565;
+    text-align: center;
+}

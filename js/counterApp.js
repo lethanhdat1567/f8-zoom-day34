@@ -25,12 +25,13 @@ function CounterApp() {
                 >
                     {count}
                 </span>
-                <span className="alert">
-                    {count > 0
-                        ? "Số dương"
-                        : count < 0
-                        ? "Số âm"
-                        : "Bằng không"}
+                <span
+                    className="alert"
+                    style={{
+                        color: count > 0 ? "green" : count < 0 ? "red" : "gray",
+                    }}
+                >
+                    {count > 0 ? "Dương" : count < 0 ? "Âm" : "Bằng không"}
                 </span>
                 <div className="utils">
                     <button className="btn increase" onClick={handleIncrease}>
