@@ -13,7 +13,7 @@ function ProfileApp() {
     return (
         <div className="profile-wrapper">
             <div className="thumbnail">
-                <img className="image" src="../images/putin.webp" />
+                <img className="image" src="images/putin.webp" alt="putin" />
             </div>
             <div className="profile-card">
                 <h2 className="user-name">{user.name}</h2>
