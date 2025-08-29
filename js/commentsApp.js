@@ -3,6 +3,8 @@ let randomId = 100;
 function CommentApp() {
     const [comments, setComments] = React.useState([]);
     const [commentInput, setCommentInput] = React.useState("");
+    const [nameInput, setNameInput] = React.useState("");
+    const [emailInput, setEmailInput] = React.useState("");
     const [loading, setLoading] = React.useState(false);
 
     React.useEffect(() => {
@@ -18,29 +20,52 @@ function CommentApp() {
     function handleSubmit(e) {
         e.preventDefault();
 
-        if (commentInput.trim()) {
+        if (commentInput.trim() && nameInput.trim() && emailInput.trim()) {
             const newComment = {
                 id: ++randomId,
-                name: "Lê Thành Đạt",
-                email: "lethanhdat1567@gmail.com",
+                name: nameInput,
+                email: emailInput,
                 body: commentInput,
             };
 
             setComments([newComment, ...comments]);
             setCommentInput("");
+            setNameInput("");
+            setEmailInput("");
+        } else {
+            alert("Vui lòng điền đầy đủ thông tin!");
         }
-    }
-
-    function handleChangeInput(e) {
-        const value = e.target.value;
-        setCommentInput(value);
     }
 
     return (
         <div className="wrapper">
             <form className="add-comment-wrapper" onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label htmlFor="username" className="form-group__label">
+                        Username
+                    </label>
+                    <input
+                        id="username"
+                        className="form-group__input"
+                        value={nameInput}
+                        onChange={(e) => setNameInput(e.target.value)}
+                        placeholder="Nhập tên"
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="email" className="form-group__label">
+                        Email
+                    </label>
+                    <input
+                        id="email"
+                        className="form-group__input"
+                        value={emailInput}
+                        onChange={(e) => setEmailInput(e.target.value)}
+                        placeholder="Nhập email"
+                    />
+                </div>
                 <textarea
-                    onChange={handleChangeInput}
+                    onChange={(e) => setCommentInput(e.target.value)}
                     value={commentInput}
                     rows={5}
                     className="add-comment-input"

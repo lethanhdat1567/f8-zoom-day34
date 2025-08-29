@@ -16,6 +16,7 @@
     border: 2px solid #ccc;
     border-radius: 4px;
     outline: none;
+    margin-top: 10px;
 }
 
 .add-comment-input:focus {
@@ -101,4 +102,27 @@
 .loading {
     font-size: 18px;
     text-align: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 10px;
+}
+
+.form-group__label {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.form-group__input {
+    border: 2px solid #ccc;
+    padding: 4px;
+    border-radius: 4px;
+    outline: none;
+}
+
+.form-group__input:focus {
+    border: 2px solid #33a1e0;
 }
